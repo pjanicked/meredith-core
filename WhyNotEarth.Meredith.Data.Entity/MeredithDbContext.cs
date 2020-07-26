@@ -96,6 +96,17 @@ namespace WhyNotEarth.Meredith.Data.Entity
 
         public DbSet<PmuQuestion> PmuQuestions { get; set; } = null!;
 
+        // Platform
+        public DbSet<Models.Modules.Platform.Card> PlatformCards { get; set; } = null!;
+
+        public DbSet<Models.Modules.Platform.Customer> PlatformCustomers { get; set; } = null!;
+
+        public DbSet<Models.Modules.Platform.Discount> PlatformDiscounts { get; set; } = null!;
+
+        public DbSet<Models.Modules.Platform.Plan> PlatformPlans { get; set; } = null!;
+
+        public DbSet<Models.Modules.Platform.Subscription> PlatformSubscriptions { get; set; } = null!;
+
         public MeredithDbContext(DbContextOptions<MeredithDbContext> options) : base(options)
         {
         }

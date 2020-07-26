@@ -9,6 +9,7 @@ using WhyNotEarth.Meredith.Identity;
 using WhyNotEarth.Meredith.Jobs.Public;
 using WhyNotEarth.Meredith.Jobs.Volkswagen;
 using WhyNotEarth.Meredith.Pages;
+using WhyNotEarth.Meredith.Platform.Subscriptions;
 using WhyNotEarth.Meredith.Public;
 using WhyNotEarth.Meredith.Services;
 using WhyNotEarth.Meredith.Shop;
@@ -28,6 +29,8 @@ namespace WhyNotEarth.Meredith.DependencyInjection
             // Public
             serviceCollection
                 .AddScoped<IStripeService, StripeService>()
+                .AddScoped<IStripeCustomerService, StripeCustomerService>()
+                .AddScoped<IStripeSubscriptionService, StripeSubscriptionService>()
                 .AddScoped<StripeOAuthService>()
                 .AddScoped<CompanyService>()
                 .AddScoped<PageService>()
@@ -71,6 +74,11 @@ namespace WhyNotEarth.Meredith.DependencyInjection
                 .AddScoped<NewJumpStartService>()
                 .AddScoped<NewJumpStartJob>()
                 .AddScoped<NewJumpStartEmailJob>();
+
+            // Platform
+            serviceCollection
+                .AddScoped<CustomerService>()
+                .AddScoped<SubscriptionService>();
 
             // Tenant
             serviceCollection
