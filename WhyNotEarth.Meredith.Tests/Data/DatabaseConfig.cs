@@ -35,8 +35,8 @@ namespace WhyNotEarth.Meredith.Tests.Data
         {
             var stripeSubscriptionService = DatabaseConfiguration.Instance.Services.GetRequiredService<IStripeSubscriptionService>();
             var dbContext = DatabaseConfiguration.Instance.Services.GetRequiredService<MeredithDbContext>();
-            var standardStripePlanId = await stripeSubscriptionService.GetPlanByName("Browtricks");
-            var enterpriseStripePlanId = await stripeSubscriptionService.GetPlanByName("Browtricks 2: Electric Boogaloo");
+            var standardStripePlanId = await stripeSubscriptionService.GetPriceByDescription("Browtricks");
+            var enterpriseStripePlanId = await stripeSubscriptionService.GetPriceByDescription("Browtricks 2: Electric Boogaloo");
             var standardPlan = await dbContext.PlatformPlans.FirstOrDefaultAsync(p => p.StripeId == standardStripePlanId);
             if (standardPlan == null)
             {
